@@ -3,18 +3,21 @@
 
 
 # Project Name
-Long Description about project. This project do that. This project is awesome...
+####Wordle Solver: A Word Puzzle Game
 ## Team members
 1. [Bharath](https://github.com/MrWonder22)
 2. [Sean](https://github.com/mrsean2005)
 ## Link to product walkthrough
-[link to video](Link Here)
-## How it Works ?
-1. Explaining the working of project
-2. Embed video of project demo
+
+[Link to video](https://youtu.be/JIhp8-aq2qg)
+## How it Works?
+###1. Explaining the working of the project:
+   
+   Wordle is a word puzzle game where you guess a five-letter word within six tries. After each guess, you receive feedback on which letters are correct and in the right position (green), correct but in the wrong position (yellow), or not in the word (gray). Your goal is to solve the puzzle by finding the word with the feedback provided in the fewest attempts.
+
 ## Libraries used
-Library Name - Version
+flet
 ## How to configure
-Instructions for setting up project
+```pip install flet```
 ## How to Run
-Instructions for running
+```py wordle.py```

@@ -43,26 +43,22 @@ def main(page: ft.Page):
                         userGuess[x], "", 1
                     )
                     guessColourCode[x] = yellow
-            print("clr code")
-            print(guessColourCode)
 
             def tiled(lst):
                 tile = [0] * 5
                 for i in range(len(lst)):
 
-                    print(lst)
                     if lst[i] == grey:
                         tile[
-                            i] = f'ft.Container(width=50, height=50, bgcolor=ft.colors.GREY, content=ft.Text("{userGuess[i]}", color="Black", size=20))'
+                            i] = f'ft.Container(width=50, height=40, bgcolor=ft.colors.GREY, content=ft.Text("{userGuess[i]}", color="Black", size=20,text_align="CENTER"))'
                     elif lst[i] == yellow:
 
                         tile[
-                            i] = f'ft.Container(width=50, height=50, bgcolor=ft.colors.YELLOW, content=ft.Text("{userGuess[i]}", color="Black", size=20))'
+                            i] = f'ft.Container(width=50, height=40, bgcolor=ft.colors.YELLOW, content=ft.Text("{userGuess[i]}", color="Black", size=20,text_align="CENTER"))'
                     else:
                         tile[
-                            i] = f'ft.Container(width=50, height=50, bgcolor=ft.colors.GREEN, content=ft.Text("{userGuess[i]}", color="Black", size=20))'
+                            i] = f'ft.Container(width=50, height=40, bgcolor=ft.colors.GREEN, content=ft.Text("{userGuess[i]}", color="Black", size=20,text_align="CENTER"))'
 
-                print(tile)
                 page.add(
 
                     ft.Row(

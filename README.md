@@ -11,7 +11,7 @@
 
 [Link to video](https://youtu.be/JIhp8-aq2qg)
 ## How it Works?
-###1. Explaining the working of the project:
+### 1. Explaining the working of the project:
    
    Wordle is a word puzzle game where you guess a five-letter word within six tries. After each guess, you receive feedback on which letters are correct and in the right position (green), correct but in the wrong position (yellow), or not in the word (gray). Your goal is to solve the puzzle by finding the word with the feedback provided in the fewest attempts.
 

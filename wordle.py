@@ -6,7 +6,8 @@ def main(page: ft.Page):
     global turns
     file = open("solutions.txt", "r")
     answerList = file.readlines()
-    word = answerList[random.randint(0, len(answerList) - 1)].upper()
+    word = answerList[random.randint(0, len(answerList) - 1)].lower()
+    print(word)
 
     wordlist = open("words.txt", "r")
     wordlist = wordlist.readlines()
@@ -19,12 +20,13 @@ def main(page: ft.Page):
 
     txt = ft.TextField(label="Enter your word")
     turns = 0
+    grey = "grey"
+    yellow = "yellow"
+    green = "green"
 
     def button_clicked(e):
-        grey = "grey"
-        yellow = "yellow"
-        green = "green"
-        userGuess = txt.value
+
+        userGuess = str(txt.value).lower()
         remaining_letters_in_word = word
         guessColourCode = [grey, grey, grey, grey, grey]
         if len(txt.value) == 5 and userGuess.lower() in wordlist:
@@ -41,38 +43,46 @@ def main(page: ft.Page):
                         userGuess[x], "", 1
                     )
                     guessColourCode[x] = yellow
+            print("clr code")
+            print(guessColourCode)
 
             def tiled(lst):
                 tile = [0] * 5
                 for i in range(len(lst)):
+
+                    print(lst)
                     if lst[i] == grey:
-                        print(i)
                         tile[
-                            i] = 'ft.Container(width=50, height=50, bgcolor=ft.colors.GREY, content=ft.Text(f"{userGuess[i]}", color="Black", size=20))'
+                            i] = f'ft.Container(width=50, height=50, bgcolor=ft.colors.GREY, content=ft.Text("{userGuess[i]}", color="Black", size=20))'
                     elif lst[i] == yellow:
-                        print(i)
 
                         tile[
-                            i] = 'ft.Container(width=50, height=50, bgcolor=ft.colors.YELLOW, content=ft.Text(f"{userGuess[i]}", color="Black", size=20))'
+                            i] = f'ft.Container(width=50, height=50, bgcolor=ft.colors.YELLOW, content=ft.Text("{userGuess[i]}", color="Black", size=20))'
                     else:
-                        print(i)
                         tile[
-                            i] = 'ft.Container(width=50, height=50, bgcolor=ft.colors.GREEN, content=ft.Text(f"{userGuess[i]}", color="Black", size=20))'
+                            i] = f'ft.Container(width=50, height=50, bgcolor=ft.colors.GREEN, content=ft.Text("{userGuess[i]}", color="Black", size=20))'
 
-                return tile
+                print(tile)
+                page.add(
 
-            print(tiled(guessColourCode))
+                    ft.Row(
+                        controls=[
+                            eval(tile[0]),
+                            eval(tile[1]),
+                            eval(tile[2]),
+                            eval(tile[3]),
+                            eval(tile[4]),
 
-        else:
-            pass
+                        ]
+                    )
+                )
+            tiled(guessColourCode)
 
     b = ft.ElevatedButton(text="Guess", on_click=button_clicked)
 
     page.add(
-        ft.Row(
-            [
-                crrct, wrng, prtl
-            ]
+        ft.Row(controls=[
+        ]
         ), txt, b
     )
 

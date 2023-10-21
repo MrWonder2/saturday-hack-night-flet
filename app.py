@@ -104,8 +104,22 @@ def main(page: ft.Page):
         ],
         border_radius=10,
     )
-    page.add(dd_sex, dd_fname, dd_lname, limit, b,
-             t, tempi)
+    # page.add(dd_sex, dd_fname, dd_lname, limit, b,
+    #          t, tempi)
+    page.add(
+        ft.Row(
+            controls=[
+                dd_sex, dd_fname, dd_lname, limit,
+            ]
+
+        ),
+        ft.Column(
+            controls=[
+                b,
+                t, tempi
+            ]
+        )
+    )
 
 
 ft.app(target=main)

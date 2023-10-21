@@ -5,9 +5,10 @@ from names import *
 def main(page: ft.Page):
 
     page.title = "Random Name Generator"
+    page.bgcolor = "#022954"
     page.add(
         ft.Text("The Random Name Artisan", size=30,
-                color="blue600", italic=True)
+                color="b0b8ce", font_family="Fira Code", weight="BOLD")
     )
 
     def dropdown_changed(e):
@@ -41,7 +42,6 @@ def main(page: ft.Page):
                 # print(x)
             except Exception as e:
                 print(f"An error occurred: {e}")
-
             t.value = t.value + \
                 f"The generated name is: {pg_fname} {pg_lname} \n"
         page.update()
@@ -52,12 +52,13 @@ def main(page: ft.Page):
     dd_sex = ft.Dropdown(
         on_change=dropdown_changed,
         width=200,
-        hint_text="Gender",
+        hint_text="Sex: No experience",
         options=[
             ft.dropdown.Option("Male"),
             ft.dropdown.Option("Female"),
             ft.dropdown.Option("Unisex"),
         ],
+        border_radius=10,
     )
 
     dd_fname = ft.Dropdown(
@@ -71,10 +72,8 @@ def main(page: ft.Page):
             ft.dropdown.Option("German"),
             ft.dropdown.Option("Russian"),
             ft.dropdown.Option("Indian"),
-
-
         ],
-
+        border_radius=10,
     )
 
     dd_lname = ft.Dropdown(
@@ -88,10 +87,8 @@ def main(page: ft.Page):
             ft.dropdown.Option("German"),
             ft.dropdown.Option("Russian"),
             ft.dropdown.Option("Indian"),
-
-
-
         ],
+        border_radius=10,
     )
 
     limit = ft.Dropdown(
@@ -104,11 +101,11 @@ def main(page: ft.Page):
             ft.dropdown.Option(3),
             ft.dropdown.Option(4),
             ft.dropdown.Option(5),
-
         ],
+        border_radius=10,
     )
-
-    page.add(dd_sex, dd_fname, dd_lname, limit, b, t, tempi)
+    page.add(dd_sex, dd_fname, dd_lname, limit, b,
+             t, tempi)
 
 
 ft.app(target=main)
